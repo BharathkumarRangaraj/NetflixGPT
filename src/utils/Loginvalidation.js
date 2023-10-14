@@ -6,6 +6,7 @@ export const Loginvalidation=(Email,Password)=>{
     if(!emailRegex) return 'Emaid ID is not valid';
    
     if(!PasswordRegex) return 'Password ID is not valid'
-    return 'succesful'
+    return null;
+
 
 }

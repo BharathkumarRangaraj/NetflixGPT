@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from './Header'
 
 const Browserpage = () => {
   return (
-    <div>Browserpage</div>
+    <div>
+      <Header/>
+    </div>
   )
 }
 

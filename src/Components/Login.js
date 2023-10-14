@@ -1,8 +1,16 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
 import { Loginvalidation } from '../utils/Loginvalidation';
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from '../utils/Firebase';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addusers } from '../utils/userSlice';
+
 
 const Login = () => {
+  const navigate=useNavigate();
+  const dispatch=useDispatch()
   const [issignin,setissignin]=useState(false);
   const [errorstore,seterrorstore]=useState(null);
   const Email=useRef(null);
@@ -20,6 +28,55 @@ const Login = () => {
     
     const message=Loginvalidation(Email.current.value,password.current.value);
     seterrorstore(message)
+if(message) return;
+if(issignin){
+  //signup
+  createUserWithEmailAndPassword(auth, Email.current.value,password.current.value)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    updateProfile(user, {
+      displayName: Name.current.value, 
+      photoURL: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+    }).then(() => {
+      // Profile updated!
+      const {uid,displayName,email,photoURL} = user;
+      dispatch(addusers({uid:uid,displayname:displayName,email:email,photoURL:photoURL}))
+      navigate('/browserpage')
+    }).catch((error) => {
+      // An error occurred
+     seterrorstore(error.message)
+    });
+    // Signed up 
+    
+    navigate('/browserpage')
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterrorstore(errorCode+' '+errorMessage)
+    // ..
+  });
+}else{
+  //signin
+  
+signInWithEmailAndPassword(auth, Email.current.value,password.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    navigate('/browserpage')
+
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterrorstore(errorCode+''+errorMessage)
+  });
+}
+
 
   }
 
@@ -51,3 +108,4 @@ const Login = () => {
 }
 
 export default Login
+

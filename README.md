@@ -9,3 +9,6 @@
 -form validatation
 -useRef
 -firebase deploy
+-auth,sign in/out logic
+-profile update
+-bugs fixed

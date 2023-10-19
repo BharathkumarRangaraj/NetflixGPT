@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addusers, removeusers } from "../utils/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
+import { netflx_logo } from "../utils/const";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -14,16 +15,12 @@ const Header = () => {
 
   function handlesgnout() {
     signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((error) => {
-        navigate("/error");
-      });
+      .then(() => {})
+      .catch((error) => {});
   }
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, displayName, email, photoURL } = auth.currentUser;
         dispatch(
@@ -44,6 +41,8 @@ const Header = () => {
         navigate("/");
       }
     });
+    //unsubscribing while components unmounts
+    return () => unsubscribe();
   }, []);
 
   return (
@@ -52,7 +51,7 @@ const Header = () => {
         <img
           className="py-2 mx-10"
           alt="logo-of-netflx"
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          src={netflx_logo}
         ></img>
       </div>
       {user && (

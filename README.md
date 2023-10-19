@@ -12,3 +12,7 @@
 -auth,sign in/out logic
 -profile update
 -bugs fixed
+-unsubscribed to the onauth statechange call back
+-registered tmdb and added keyapi
+-get an tmdb now playing movies list
+-put tmdb api in store -movieslice.

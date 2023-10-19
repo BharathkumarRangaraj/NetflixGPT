@@ -25,9 +25,6 @@ const Login = () => {
   };
 
   const handlebuttonchange = () => {
-    console.log(Email.current.value);
-    console.log(password.current.value);
-
     const message = Loginvalidation(
       Email.current.value,
       password.current.value
@@ -68,7 +65,7 @@ const Login = () => {
           // Signed up
 
           navigate("/browserpage");
-          console.log(user);
+
           // ...
         })
         .catch((error) => {

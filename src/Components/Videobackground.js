@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { API_optIons } from "../utils/const";
+import { useDispatch, useSelector } from "react-redux";
+import { addtrailer } from "../utils/MovieSlice";
 
-const Videobackground = () => {
-  return <div>Videobackground</div>;
+const Videobackground = ({ movieid }) => {
+  const dispatch = useDispatch();
+  const trailer = useSelector((store) => store?.movies?.trailer);
+  console.log(trailer, "djfh");
+  const getmovievideos = async () => {
+    const data = await fetch(
+      "https://api.themoviedb.org/3/movie/299054/videos?language=en-US",
+      API_optIons
+    );
+    const json = await data.json();
+    console.log(json, "jsodatafordraler");
+    const filterdata = json.results.filter((video) => video.type === "Trailer");
+    const trailer = filterdata.length ? filterdata[0] : json.results[0];
+    dispatch(addtrailer(trailer));
+    console.log(trailer, "tralfer");
+  };
+  useEffect(() => {
+    getmovievideos();
+  }, []);
+  return (
+    <div>
+      <iframe
+        width="560"
+        height="315"
+        src={"https://www.youtube.com/embed/" + trailer?.key}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      ></iframe>
+    </div>
+  );
 };
 
 export default Videobackground;

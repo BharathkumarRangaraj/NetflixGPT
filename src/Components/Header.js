@@ -15,7 +15,9 @@ const Header = () => {
 
   function handlesgnout() {
     signOut(auth)
-      .then(() => {})
+      .then(() => {
+        navigate("/");
+      })
       .catch((error) => {});
   }
 

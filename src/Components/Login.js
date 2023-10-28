@@ -7,12 +7,11 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/Firebase";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import { addusers } from "../utils/userSlice";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [issignin, setissignin] = useState(false);
   const [errorstore, seterrorstore] = useState(null);
@@ -62,8 +61,6 @@ const Login = () => {
               seterrorstore(error.message);
             });
           // Signed up
-
-          navigate("/browserpage");
 
           // ...
         })

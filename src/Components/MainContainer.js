@@ -17,7 +17,7 @@ const MainContainer = () => {
   console.log(mainMovie, "mamove");
 
   return (
-    <div className="absolute">
+    <div>
       <VideoTitle title={original_title} overview={overview} />
       <Videobackground movied={id} />
       {/* <VideoTitle />

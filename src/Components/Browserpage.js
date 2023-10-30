@@ -2,9 +2,11 @@ import Header from "./Header";
 import useNowplayingMovies from "../Hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import UsepopularplayingMovies from "../Hooks/usePopularMovies";
 
 const Browserpage = () => {
   useNowplayingMovies();
+  UsepopularplayingMovies();
   return (
     <div>
       {/*

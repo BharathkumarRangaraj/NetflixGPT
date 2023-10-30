@@ -8,3 +8,4 @@ export const API_optIons = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MWJkYTUzM2VhOWQ5MWIxNjY0ZDliMGM5MDVhYzJmMiIsInN1YiI6IjY1MzBmODg2MzBmNzljMDBjNGFjN2MyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QUzXjPSNddxZha8ftRozvAmX7dw_q_gJ5qIpSJancFM",
   },
 };
+export const iMG_CDN_URL = "https://image.tmdb.org/t/p/w500";

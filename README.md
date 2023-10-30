@@ -16,3 +16,10 @@
 -registered tmdb and added keyapi
 -get an tmdb now playing movies list
 -put tmdb api in store -movieslice.
+-custom hooks
+-update store with movie data
+-plan for main and secondary container
+-fetch data for trailer video
+-update store with trailer video data
+-embedded youtube video and made it autoplay and mute
+

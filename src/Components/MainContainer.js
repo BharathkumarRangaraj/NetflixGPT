@@ -14,8 +14,6 @@ const MainContainer = () => {
   const { original_title, overview } = mainMovie;
   const { id } = mainMovie;
 
-  console.log(mainMovie, "mamove");
-
   return (
     <div>
       <VideoTitle title={original_title} overview={overview} />

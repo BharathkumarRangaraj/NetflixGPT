@@ -1,9 +1,9 @@
-import { useDispatch } from "react-redux";
-import { API_optIons } from "../utils/const";
-import { addnowplayingmovies } from "../utils/MovieSlice";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addontheairmovies } from "../utils/MovieSlice";
+import { API_optIons } from "../utils/const";
 
-const useNowplayingMovies = () => {
+const UseontheairMovies = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     //fetching data from TMDB nowplayng api and update store
@@ -11,13 +11,14 @@ const useNowplayingMovies = () => {
   });
   async function getApI() {
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?page=1",
+      "https://api.themoviedb.org/3/tv/on_the_air?page=1",
       API_optIons
     );
     const json = await data.json();
+    console.log(json.results, "top rated");
 
-    dispatch(addnowplayingmovies(json.results));
+    dispatch(addontheairmovies(json.results));
   }
 };
 
-export default useNowplayingMovies;
+export default UseontheairMovies;

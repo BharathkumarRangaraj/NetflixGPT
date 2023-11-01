@@ -2,7 +2,6 @@ import React from "react";
 import { iMG_CDN_URL } from "../utils/const";
 
 const Moviecard = ({ imgcard }) => {
-  console.log(imgcard, "fhfh");
   return (
     imgcard && (
       <div className="w-36 ml-4">

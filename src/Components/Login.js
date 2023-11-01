@@ -10,6 +10,7 @@ import { auth } from "../utils/Firebase";
 
 import { useDispatch } from "react-redux";
 import { addusers } from "../utils/userSlice";
+import { BG_url } from "../utils/const";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -99,10 +100,7 @@ const Login = () => {
       </div>
 
       <div className="absolute placeholder-opacity-75  text-white">
-        <img
-          alt="logn-bg-mg"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/9db4a880-3034-4e98-bdea-5d983e86bf52/b5953637-091d-4e02-9754-2bfadc8a8f7c/IN-en-20230925-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-        />
+        <img alt="logn-bg-mg" src={BG_url} />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}

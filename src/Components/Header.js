@@ -7,6 +7,7 @@ import { addusers, removeusers } from "../utils/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { netflx_logo } from "../utils/const";
+import { gptsearchview } from "../utils/Gptslice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -46,6 +47,9 @@ const Header = () => {
     //unsubscribing while components unmounts
     return () => unsubscribe();
   }, []);
+  function togglegptchangeview() {
+    dispatch(gptsearchview());
+  }
 
   return (
     <div className=" w-screen absolute  bg-gradient-to-b from-black z-10 flex justify-between">
@@ -58,10 +62,27 @@ const Header = () => {
       </div>
       {user && (
         <div className="flex p-2">
-          <img className="h-8 w-8 " alt="profile" src={user?.photoURL} />
-          <h5 onClick={handlesgnout} className="text-white px-2 cursor-pointer">
-            signout
-          </h5>
+          <div>
+            <button
+              onClick={() => togglegptchangeview()}
+              className="mb-2 px-4 py-2 text-white rounded-lg bg-purple-800 font-bold "
+            >
+              GPT Search
+            </button>
+          </div>
+          <div className="flex pl-2 ">
+            <img
+              className="h-10 w-8 m-2 pb-4 "
+              alt="profile"
+              src={user?.photoURL}
+            />
+            <h5
+              onClick={handlesgnout}
+              className="text-white  cursor-pointer pr-10 mt-2"
+            >
+              signout
+            </h5>
+          </div>
         </div>
       )}
     </div>

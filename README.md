@@ -22,4 +22,5 @@
 -fetch data for trailer video
 -update store with trailer video data
 -embedded youtube video and made it autoplay and mute
-
+-add movielists in secondary component
+-added movie cards & store .

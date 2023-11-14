@@ -10,7 +10,7 @@ import GptSearchpage from "./GptSearchpage";
 
 const Browserpage = () => {
   const gptsearchview = useSelector((store) => store.gpt.showgptview);
-  console.log(gptsearchview, "gpt");
+
   useNowplayingMovies();
   UsepopularplayingMovies();
   useTopRatedMovies();

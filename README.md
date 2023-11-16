@@ -24,3 +24,5 @@
 -embedded youtube video and made it autoplay and mute
 -add movielists in secondary component
 -added movie cards & store .
+-added chatgpt api
+-stored the movie list in store

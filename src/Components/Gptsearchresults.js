@@ -10,7 +10,7 @@ const Gptsearchresults = () => {
     <div className="m-4 p-4 bg-opacity-80 bg-black text-white">
       <div>
         {movieNames.map((Movies, i) => (
-          <MovieList key={Movies} title={Movies} movies={movieResults[i]} />
+          <MovieList key={i} title={Movies} movies={movieResults[i]} />
         ))}
       </div>
     </div>

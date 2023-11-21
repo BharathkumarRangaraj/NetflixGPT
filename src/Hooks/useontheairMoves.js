@@ -1,13 +1,15 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addontheairmovies } from "../utils/MovieSlice";
 import { API_optIons } from "../utils/const";
 
 const UseontheairMovies = () => {
   const dispatch = useDispatch();
+  const useNowontheair = useSelector((store) => store.movies.ontheair);
   useEffect(() => {
     //fetching data from TMDB nowplayng api and update store
-    getApI();
+    //meme tech appled below
+    !useNowontheair && getApI();
   });
   async function getApI() {
     const data = await fetch(

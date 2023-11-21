@@ -39,7 +39,9 @@ const Gptsearchbar = () => {
     const GptMovies = chatgptresults?.choices?.[0]?.message?.content.split(",");
     const promiseArray = GptMovies.map((movie) => searchMovieTMDB(movie));
     const TMDBresults = await Promise.all(promiseArray);
-    dispatch(addgptmovies(TMDBresults));
+    dispatch(
+      addgptmovies({ movieNames: GptMovies, movieResults: TMDBresults })
+    );
     console.log(TMDBresults, "tmdbresults");
   };
   return (

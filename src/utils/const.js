@@ -17,4 +17,4 @@ export const supported_languages = [
   { identifier: "tamil", name: "tamil" },
 ];
 export const OPEN_API_KEY =
-  "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";
+  "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";

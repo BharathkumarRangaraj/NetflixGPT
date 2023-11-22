@@ -14,7 +14,7 @@ const MainContainer = () => {
   const { id } = mainMovie;
 
   return (
-    <div>
+    <div className="pt-[30%] md:pt-0">
       <VideoTitle title={original_title} overview={overview} />
       <Videobackground movied={id} />
       {/* <VideoTitle />

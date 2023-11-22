@@ -57,16 +57,16 @@ const Header = () => {
   };
 
   return (
-    <div className=" w-screen absolute  bg-gradient-to-b from-black z-10 flex justify-between">
-      <div className="w-44 ">
+    <div className=" w-screen absolute  bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-center md:justify-between ">
+      <div className="w-44 mx-auto md:mx-0 ">
         <img
-          className="py-2 mx-10"
+          className="py-2 md:mx-10"
           alt="logo-of-netflx"
           src={netflx_logo}
         ></img>
       </div>
       {user && (
-        <div className="flex p-2">
+        <div className="flex p-2 mb-10 md:mb-4 text-xs md:text-[16px] justify-center justify-between ">
           <div>
             {showgptsearch && (
               <select className="m-2" onChange={handlelanguagechange}>
@@ -81,10 +81,10 @@ const Header = () => {
               onClick={() => togglegptchangeview()}
               className="mb-2 px-4 py-2 text-white rounded-lg bg-purple-800 font-bold "
             >
-           { showgptsearch?'homepage':' GPT Search'}
+              {showgptsearch ? "homepage" : " GPT Search"}
             </button>
           </div>
-          <div className="flex pl-2 ">
+          <div className="flex md:pl-2 pl-[50%]">
             <img
               className="h-10 w-8 m-2 pb-4 "
               alt="profile"
@@ -92,7 +92,7 @@ const Header = () => {
             />
             <h5
               onClick={handlesgnout}
-              className="text-white  cursor-pointer pr-10 mt-2"
+              className="text-white  cursor-pointer md:pr-10 mt-2 "
             >
               signout
             </h5>

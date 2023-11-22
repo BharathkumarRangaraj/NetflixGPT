@@ -45,9 +45,9 @@ const Gptsearchbar = () => {
     console.log(TMDBresults, "tmdbresults");
   };
   return (
-    <div className="pt-[10%] pl-[30%]  ">
+    <div className="pt-[10%] md:pl-[30%]  ">
       <form
-        className="bg-black p-2 m-2 w-1/2 grid grid-cols-12 font-bold rounded-lg"
+        className="bg-black p-2 m-2 w-full md:w-1/2 grid grid-cols-12 font-bold rounded-lg"
         onSubmit={(e) => e.preventDefault()}
       >
         <input

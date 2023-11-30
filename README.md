@@ -26,3 +26,15 @@
 -added movie cards & store .
 -added chatgpt api
 -stored the movie list in store
+-movie card
+-TMDB img cdn url
+-gpt search page
+-gpt search bar
+-multi language option enabled
+-open API key
+-gpt seach api call
+-fetched gpt movie suggestions from the TMDB
+-gpt slice created and added data
+-reused movie list component to make movie suggestions in GPT search page
+-.env file to gitingore the key
+-made our site responsive

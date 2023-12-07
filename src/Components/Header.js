@@ -66,7 +66,7 @@ const Header = () => {
         ></img>
       </div>
       {user && (
-        <div className="flex p-2 mb-10 md:mb-4 text-xs md:text-[16px] justify-center justify-between ">
+        <div className="flex p-2 mb-10 md:mb-4 text-xs md:text-[16px] justify-center  ">
           <div>
             {showgptsearch && (
               <select className="m-2" onChange={handlelanguagechange}>
